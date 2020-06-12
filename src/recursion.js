@@ -22,6 +22,12 @@ var factorial = function(n) {
   return (n*factorial(n-1));
 };
 
+/*
+########################################################
+FACTORIAL COMPLETED
+########################################################
+*/
+
 // 2. Compute the sum of an array of integers.
 // sum([1,2,3,4,5,6]); // 21
 var sum = function(array) {
@@ -39,10 +45,43 @@ var sum = function(array) {
 
 };
 
+/*
+########################################################
+SUM COMPLETED
+########################################################
+*/
+
 // 3. Sum all numbers in an array containing nested arrays.
 // arraySum([1,[2,3],[[4]],5]); // 15
 var arraySum = function(array) {
+
+  //base case. if array's length is 0 then return 0
+  if (array.length === 0) {
+    return 0;
+  }
+
+  //last element of the input array
+  var lastElem = array[array.length-1];
+
+  //if the last element is an array
+  //then we must figure out the sum of that array and set it equal to that element
+  if (Array.isArray(lastElem)) {
+    lastElem = arraySum(lastElem);
+  }
+
+  //creates a smaller array that is the input array without it's last element
+  var smallerArr = array.slice(0,array.length-1);
+
+  //recursive case
+  return lastElem + arraySum(smallerArr);
+
 };
+
+/*
+########################################################
+ARRAYSUM COMPLETED
+########################################################
+*/
 
 // 4. Check if a number is even.
 var isEven = function(n) {
