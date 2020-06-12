@@ -104,7 +104,29 @@ ISEVEN COMPLETED
 // sumBelow(10); // 45
 // sumBelow(7); // 21
 var sumBelow = function(n) {
+
+
+  //base case
+  if (n === 0) {
+    return 0;
+  }
+
+  //recursive case if num is positive
+  if (n>0) {
+    return (n-1) + sumBelow(n-1);
+  }
+
+  //recursive case if num is negative
+  if (n<0) {
+    return (n+1) + sumBelow(n+1);
+  }
 };
+
+/*
+########################################################
+SUMBELOW COMPLETED
+########################################################
+*/
 
 // 6. Get the integers within a range (x, y).
 // range(2,9); // [3,4,5,6,7,8]
