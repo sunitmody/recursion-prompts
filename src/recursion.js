@@ -131,7 +131,28 @@ SUMBELOW COMPLETED
 // 6. Get the integers within a range (x, y).
 // range(2,9); // [3,4,5,6,7,8]
 var range = function(x, y) {
+
+  //base case
+  if (x === y || x+1 === y || x-1 === y) {
+    return [];
+  }
+
+  //recursive case if x < y
+  if (x < y) {
+    return [x+1].concat(range(x+1,y));
+  }
+
+  //recursive case if x > y
+  if (x > y) {
+    return [x-1].concat(range(x-1,y));
+  }
 };
+
+/*
+########################################################
+RANGE COMPLETED
+########################################################
+*/
 
 // 7. Compute the exponent of a number.
 // The exponent of a number says how many times the base number is used as a factor.
