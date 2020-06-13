@@ -185,7 +185,22 @@ EXPONENT COMPLETED
 // powerOfTwo(16); // true
 // powerOfTwo(10); // false
 var powerOfTwo = function(n) {
+  //base cases
+  if (n === 1) {
+    return true;
+  } else if (n < 1) {
+    return false;
+  }
+
+  //recursive case
+  return powerOfTwo(n/2);
 };
+
+/*
+########################################################
+POWEROFTWO COMPLETED
+########################################################
+*/
 
 // 9. Write a function that reverses a string.
 var reverse = function(string) {
