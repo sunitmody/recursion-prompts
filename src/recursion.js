@@ -204,7 +204,20 @@ POWEROFTWO COMPLETED
 
 // 9. Write a function that reverses a string.
 var reverse = function(string) {
+  //base case
+  if (string.length === 0) {
+    return '';
+  }
+
+  //recursive caes
+  return string[string.length-1] + reverse(string.slice(0,string.length-1));
 };
+
+/*
+########################################################
+REVERSE COMPLETED
+########################################################
+*/
 
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = function(string) {
