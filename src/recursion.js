@@ -69,7 +69,7 @@ var arraySum = function(array) {
     lastElem = arraySum(lastElem);
   }
 
-  //creates a smaller array that is the input array without it's last element
+  //creates a smaller array that is the input array without its last element
   var smallerArr = array.slice(0,array.length-1);
 
   //recursive case
@@ -160,7 +160,25 @@ RANGE COMPLETED
 // exponent(4,3); // 64
 // https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/computing-powers-of-a-number
 var exponent = function(base, exp) {
+  //base case
+  if (exp === 0) {
+    return 1;
+  }
+
+  //recursive case if exponent is negative
+  if (exp < 1) {
+    return parseFloat(((1/base) * exponent(base, exp+1)).toFixed(5));
+  }
+
+  //recursive case if exponent is positive
+  return base * exponent(base, exp-1);
 };
+
+/*
+########################################################
+EXPONENT COMPLETED
+########################################################
+*/
 
 // 8. Determine if a number is a power of two.
 // powerOfTwo(1); // true
