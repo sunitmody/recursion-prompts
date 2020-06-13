@@ -251,11 +251,68 @@ PALINDROME COMPLETED
 // modulo(17,5) // 2
 // modulo(22,6) // 4
 var modulo = function(x, y) {
+
+  if (x === 0 && y === 0) {
+    return NaN;
+  }
+
+
+  if (x < 0 && y > 0) {
+
+    if (x - x - x < y) {
+      return x;
+    }
+
+    return modulo(x+y,y);
+
+  } else if (x < 0 && y < 0) {
+
+    if (x > y) {
+      return x;
+    }
+
+    return modulo(x-y,y);
+
+  }  else if (x > 0 && y < 0) {
+
+    if (x < y - y - y) {
+      return x;
+    }
+
+    return modulo(x+y,y);
+
+  } else {
+
+    if (x < y) {
+      return x;
+    }
+
+    return modulo(x-y,y);
+
+  }
+
 };
+
+/*
+########################################################
+MODULO COMPLETED
+########################################################
+*/
 
 // 12. Write a function that multiplies two numbers without using the * operator or
 // Math methods.
 var multiply = function(x, y) {
+  if (x === 1) {
+    return y;
+  } else if (y === 1) {
+    return x;
+  } else if (x === 0 || y === 0) {
+    return 0;
+  }
+
+
+
+
 };
 
 // 13. Write a function that divides two numbers without using the / operator or
