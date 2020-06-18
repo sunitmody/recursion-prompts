@@ -310,14 +310,47 @@ var multiply = function(x, y) {
     return 0;
   }
 
+  if (x > 0 && y > 0) {
+    return x + multiply(x,y-1);
+  }
 
+  if (x > 0  && y < 0) {
+    return y + multiply(x-1,y);
+  }
 
+  if (x < 0  && y > 0) {
+    return x + multiply(x,y-1);
+  }
+
+  if (x < 0 && y < 0) {
+    return (x - x - x) + multiply (x, y+1);
+  }
 
 };
 
 // 13. Write a function that divides two numbers without using the / operator or
 // Math methods to arrive at an approximate quotient (ignore decimal endings).
 var divide = function(x, y) {
+  if (y === 1) {
+    return x;
+  } else if (y === 0) {
+    return NaN;
+  }
+
+  if (x === 0) {
+    return 0;
+  }
+
+  if (x > y) {
+    if (x < 0) {
+      return 0;
+    }
+    return 1 + divide(x-y,y);
+  }
+
+  if (x < y) {
+    return 0;
+  }
 };
 
 // 14. Find the greatest common divisor (gcd) of two positive numbers. The GCD of two
@@ -326,6 +359,16 @@ var divide = function(x, y) {
 // http://www.cse.wustl.edu/~kjg/cse131/Notes/Recursion/recursion.html
 // https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/the-euclidean-algorithm
 var gcd = function(x, y) {
+
+  if (x <= 0 || y <= 0) {
+    return null;
+  }
+
+  if (y > x) {
+
+  }
+
+
 };
 
 // 15. Write a function that compares each character of two strings and returns true if
@@ -333,6 +376,24 @@ var gcd = function(x, y) {
 // compareStr('house', 'houses') // false
 // compareStr('tomato', 'tomato') // true
 var compareStr = function(str1, str2) {
+
+  if (str1.length === 0 && str2. length === 0) {
+    return true;
+  } else if (str1.length === 0 && str2. length !== 0) {
+    return false;
+  } else if (str1.length !== 0 && str2. length === 0) {
+    return false;
+  }
+
+  if (str1[str1.length] === str2[str2.length]) {
+    str1 = str1.slice(0,str1.length-1);
+    console.log('str1:'+str1);
+    str2 = str2.slice(0,str2.length-1);
+    console.log('str2:'+str2);
+    return compareStr(str1,str2);
+  } else {
+    return false;
+  }
 };
 
 // 16. Write a function that accepts a string and creates an array where each letter
