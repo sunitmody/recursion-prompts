@@ -328,6 +328,12 @@ var multiply = function(x, y) {
 
 };
 
+/*
+########################################################
+MULTIPLY COMPLETED
+########################################################
+*/
+
 // 13. Write a function that divides two numbers without using the / operator or
 // Math methods to arrive at an approximate quotient (ignore decimal endings).
 var divide = function(x, y) {
@@ -352,6 +358,12 @@ var divide = function(x, y) {
     return 0;
   }
 };
+
+/*
+########################################################
+DIVIDE COMPLETED
+########################################################
+*/
 
 // 14. Find the greatest common divisor (gcd) of two positive numbers. The GCD of two
 // integers is the greatest integer that divides both x and y with no remainder.
@@ -396,6 +408,12 @@ var compareStr = function(str1, str2) {
   }
 };
 
+/*
+########################################################
+COMPARESTR COMPLETED
+########################################################
+*/
+
 // 16. Write a function that accepts a string and creates an array where each letter
 // occupies an index of the array.
 var createArray = function(str) {
@@ -412,9 +430,28 @@ var createArray = function(str) {
   return curLetterArr.concat(createArray(str));
 };
 
+/*
+########################################################
+CREATEARRAY COMPLETED
+########################################################
+*/
+
 // 17. Reverse the order of an array
 var reverseArr = function(array) {
+  if (array.length === 0) {
+    return [];
+  }
+
+  let smallerArr = array.slice(0,array.length-1);
+
+  return [array[array.length-1]].concat(reverseArr(smallerArr))
 };
+
+/*
+########################################################
+REVERSEARR COMPLETED
+########################################################
+*/
 
 // 18. Create a new array with a given value and length.
 // buildList(0,5) // [0,0,0,0,0]
