@@ -464,19 +464,61 @@ var buildList = function(value, length) {
   return [value].concat(buildList(value,length-1))
 };
 
+/*
+########################################################
+BIULDLIST COMPLETED
+########################################################
+*/
+
 // 19. Implement FizzBuzz. Given integer n, return an array of the string representations of 1 to n.
 // For multiples of three, output 'Fizz' instead of the number.
 // For multiples of five, output 'Buzz' instead of the number.
 // For numbers which are multiples of both three and five, output “FizzBuzz” instead of the number.
 // fizzBuzz(5) // ['1','2','Fizz','4','Buzz']
 var fizzBuzz = function(n) {
-};
+  if (n % 3 === 0 && n % 5 === 0) {
+    return fizzBuzz(n-1).concat(['FizzBuzz']);
+  } else if (n % 3 === 0) {
+    return fizzBuzz(n-1).concat(['Fizz']);
+  } else if (n % 5 === 0) {
+    return fizzBuzz(n-1).concat(['Buzz']);
+  }
+
+  if (n === 1) {
+    return ['1'];
+  }
+
+  return fizzBuzz(n-1).concat([n.toString()]);
+}
+
+/*
+########################################################
+FIZZBUZZ COMPLETED
+########################################################
+*/
 
 // 20. Count the occurence of a value in a list.
 // countOccurrence([2,7,4,4,1,4], 4) // 3
 // countOccurrence([2,'banana',4,4,1,'banana'], 'banana') // 2
 var countOccurrence = function(array, value) {
+  if (array.length === 0) {
+    return 0;
+  }
+
+  let smallerArr = array.slice(0,array.length-1);
+
+  if (array[array.length-1] === value) {
+    return 1 + countOccurrence(smallerArr,value);
+  } else {
+    return countOccurrence(smallerArr,value);
+  }
 };
+
+/*
+########################################################
+COUNTOCCURRENCE COMPLETED
+########################################################
+*/
 
 // 21. Write a recursive version of map.
 // rMap([1,2,3], timesTwo); // [2,4,6]
