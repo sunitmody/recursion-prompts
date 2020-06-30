@@ -612,6 +612,7 @@ COUNTVALUESINOBJ COMPLETED
 var replaceKeysInObj = function(obj, oldKey, newKey) {
 
   for (k in obj) {
+
     //if the current key is equal to oldKey
     if (k === oldKey) {
       obj[newKey] = obj[k];
@@ -627,13 +628,39 @@ var replaceKeysInObj = function(obj, oldKey, newKey) {
   return obj;
 };
 
+/*
+########################################################
+REPLACEKEYSINOBJ COMPLETED
+########################################################
+*/
+
 // 25. Get the first n Fibonacci numbers. In the Fibonacci sequence, each subsequent
 // number is the sum of the previous two.
 // Example: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34.....
 // fibonacci(5); // [0,1,1,2,3,5]
 // Note: The 0 is not counted.
 var fibonacci = function(n) {
+
+  if (n <= 0) {
+    return null;
+  }
+
+  if (n === 1) {
+    return [0,1]
+  }
+
+  let prevArray = fibonacci(n-1);
+  let lastNum = prevArray[prevArray.length-1]
+  let oneBeforeLastNum = prevArray[prevArray.length-2]
+
+  return prevArray.concat([lastNum+oneBeforeLastNum]);
 };
+
+/*
+########################################################
+FIBONACCI COMPLETED
+########################################################
+*/
 
 // 26. Return the Fibonacci number located at index n of the Fibonacci sequence.
 // [0,1,1,2,3,5,8,13,21]
