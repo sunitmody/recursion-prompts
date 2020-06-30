@@ -741,7 +741,30 @@ CAPITALIZEFIRST COMPLETED
 // };
 // nestedEvenSum(obj1); // 10
 var nestedEvenSum = function(obj) {
+
+  let sum = 0;
+
+  for (k in obj) {
+
+    //if current key's value is even
+    if (obj[k]%2 === 0) {
+      sum += obj[k];
+    }
+
+    //if the current key's value is an object
+    if (typeof obj[k] === 'object' && !Array.isArray(obj[k])) {
+      sum += nestedEvenSum(obj[k]);
+    }
+  }
+
+  return sum;
 };
+
+/*
+########################################################
+nestedEvenSum COMPLETED
+########################################################
+*/
 
 // 30. Flatten an array containing nested arrays.
 // flatten([1,[2],[3,[[4]]],5]); // [1,2,3,4,5]
