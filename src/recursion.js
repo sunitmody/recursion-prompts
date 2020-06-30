@@ -544,18 +544,87 @@ RMAP COMPLETED
 // countKeysInObj(obj, 'r') // 1
 // countKeysInObj(obj, 'e') // 2
 var countKeysInObj = function(obj, key) {
+
+  let numOfKeys = 0;
+
+  for (k in obj) {
+
+    //if the current key is equal to target key, increase count by 1
+    if (k === key) {
+      numOfKeys++;
+    }
+
+    //if the current key's value is an object
+    if (typeof obj[k] === 'object' && !Array.isArray(obj[k])) {
+
+      //the number of matching is the existing number of keys plus any more keys found
+      //by digging deeper into the object
+      numOfKeys += countKeysInObj(obj[k],key);
+    }
+  }
+
+  return numOfKeys;
+
 };
+
+/*
+########################################################
+COUNTKEYSINOBJ COMPLETED
+########################################################
+*/
 
 // 23. Write a function that counts the number of times a value occurs in an object.
 // var obj = {'e':{'x':'y'},'t':{'r':{'e':'r'},'p':{'y':'r'}},'y':'e'};
 // countValuesInObj(obj, 'r') // 2
 // countValuesInObj(obj, 'e') // 1
 var countValuesInObj = function(obj, value) {
+
+  let numOfValues = 0;
+
+  for (k in obj) {
+
+    //if the current key's value is equal to target value, increase count by 1
+    if (obj[k] === value) {
+      numOfValues++;
+    }
+
+    //if the current key's value is an object
+    if (typeof obj[k] === 'object' && !Array.isArray(obj[k])) {
+
+      //the number of matching is the existing number of keys plus any more keys found
+      //by digging deeper into the object
+      numOfValues += countValuesInObj(obj[k], value);
+    }
+  }
+
+  return numOfValues;
+
 };
+
+/*
+########################################################
+COUNTVALUESINOBJ COMPLETED
+########################################################
+*/
 
 // 24. Find all keys in an object (and nested objects) by a provided name and rename
 // them to a provided new name while preserving the value stored at that key.
 var replaceKeysInObj = function(obj, oldKey, newKey) {
+
+  for (k in obj) {
+    //if the current key is equal to oldKey
+    if (k === oldKey) {
+      obj[newKey] = obj[k];
+      delete(obj[k]);
+    }
+
+    //if the current key's value is an object
+    if (typeof obj[k] === 'object' && !Array.isArray(obj[k])) {
+      replaceKeysInObj(obj[k], oldKey, newKey);
+    }
+  }
+
+  return obj;
 };
 
 // 25. Get the first n Fibonacci numbers. In the Fibonacci sequence, each subsequent
