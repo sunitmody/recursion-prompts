@@ -523,7 +523,21 @@ COUNTOCCURRENCE COMPLETED
 // 21. Write a recursive version of map.
 // rMap([1,2,3], timesTwo); // [2,4,6]
 var rMap = function(array, callback) {
+
+  if (array.length === 0) {
+    return [];
+  }
+
+  let smallerArr = array.slice(0,array.length-1);
+
+  return rMap(smallerArr,callback).concat([callback(array[array.length-1])]);
 };
+
+/*
+########################################################
+RMAP COMPLETED
+########################################################
+*/
 
 // 22. Write a function that counts the number of times a key occurs in an object.
 // var obj = {'e':{'x':'y'},'t':{'r':{'e':'r'},'p':{'y':'r'}},'y':'e'};
