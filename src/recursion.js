@@ -769,7 +769,25 @@ nestedEvenSum COMPLETED
 // 30. Flatten an array containing nested arrays.
 // flatten([1,[2],[3,[[4]]],5]); // [1,2,3,4,5]
 var flatten = function(array) {
+
+  let resultArr = [];
+
+  array.forEach((elem,index) => {
+    if (Array.isArray(elem)) {
+      resultArr = resultArr.concat(flatten(elem));
+    } else {
+      resultArr.push(elem);
+    }
+  })
+
+  return resultArr;
 };
+
+/*
+########################################################
+flatten COMPLETED
+########################################################
+*/
 
 // 31. Given a string, return an object containing tallies of each letter.
 // letterTally('potato'); // {p:1, o:2, t:2, a:1}
