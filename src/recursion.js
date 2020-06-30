@@ -694,7 +694,20 @@ NTHFIBO COMPLETED
 // var words = ['i', 'am', 'learning', 'recursion'];
 // capitalizedWords(words); // ['I', 'AM', 'LEARNING', 'RECURSION']
 var capitalizeWords = function(array) {
+  if (array.length === 0) {
+    return [];
+  }
+
+  let smallerArr = array.slice(0,array.length-1);
+
+  return capitalizeWords(smallerArr).concat([array[array.length-1].toUpperCase()]);
 };
+
+/*
+########################################################
+CAPITALIZEWORDS COMPLETED
+########################################################
+*/
 
 // 28. Given an array of strings, capitalize the first letter of each index.
 // capitalizeFirst(['car','poop','banana']); // ['Car','Poop','Banana']
